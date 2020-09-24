@@ -2,10 +2,18 @@
 
   class Square {
 
-    protected $dim;
+    private $dim;
 
     public function __construct($dim) {
-        $this -> dim = $dim;
+        $this -> setDim($dim);
+    }
+
+    public function getDim() {
+      return $this -> dim;
+    }
+
+    public function setDim($dim) {
+      $this -> dim = $dim;
     }
 
     public function getPer() {
@@ -16,10 +24,10 @@
       return pow(($this -> dim), 2);
     }
 
-    public function getStrOutput() {
-        return "Dimensione: " . $this -> dim . "<br>"
-        . "Perimetro: " . $this -> getPer() . "<br>"
-        . "Area: " . $this -> getArea() . "<br>";
+    private function getStrOutput() {
+        return  "Dimensione: " . $this -> getDim() . "<br>"
+              . "Perimetro: "  . $this -> getPer() . "<br>"
+              . "Area:      "  . $this -> getArea() . "<br>";
     }
 
     public function __toString() {
@@ -35,17 +43,17 @@
     // }
 
     public function getSup() {
-      return 6 * pow(($this -> dim), 2);
+      return 6 * pow(($this -> getDim()), 2); // oppure return 6 * $this -> getArea();
     }
 
     public function getVol() {
-      return pow(($this -> dim), 3);
+      return pow(($this -> getDim()), 3); // oppure return $this -> getArea() * this -> dim;
     }
 
     public function getStrOutput() {
-      return "Dimensione: " . $this -> dim . "<br>"
-      . "Superficie: " . $this -> getSup() . "<br>"
-      . "Volume: " . $this -> getVol() . "<br>";
+      return "Dimensione: "   . $this -> getDim() . "<br>"
+            . "Superficie: "  . $this -> getSup() . "<br>"
+            . "Volume: "      . $this -> getVol() . "<br>";
     }
 
     public function __toString() {
