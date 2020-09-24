@@ -29,28 +29,29 @@
 }
 
   class Cube extends Square {
+    // Non ha senso perché già ereditato identico da sopra.
+    // public function __construct($dim) {
+    //   parent::__construct($dim);
+    // }
 
-      public function __construct($dim) {
-        parent::__construct($dim);
-      }
+    public function getSup() {
+      return 6 * pow(($this -> dim), 2);
+    }
 
-      public function getSup() {
-        return 6 * pow(($this -> dim), 2);
-      }
+    public function getVol() {
+      return pow(($this -> dim), 3);
+    }
 
-      public function getVol() {
-        return pow(($this -> dim), 3);
-      }
+    public function getStrOutput() {
+      return "Dimensione: " . $this -> dim . "<br>"
+      . "Superficie: " . $this -> getSup() . "<br>"
+      . "Volume: " . $this -> getVol() . "<br>";
+    }
 
-      public function getStrOutput() {
-        return "Dimensione: " . $this -> dim . "<br>"
-        . "Superficie: " . $this -> getSup() . "<br>"
-        . "Volume: " . $this -> getVol() . "<br>";
-      }
+    public function __toString() {
+        return "<u>Cubo</u>:<br>" . $this -> getStrOutput();
+    }
 
-      public function __toString() {
-          return "<u>Cubo</u>:<br>" . $this -> getStrOutput();
-      }
   }
 
   $square1 = new Square(7);
